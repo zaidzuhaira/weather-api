@@ -1,11 +1,11 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import { logger } from "./middleware/logger";
 import { notFoundHandler, errorHandler } from "./middleware/errorHandler";
 import indexRouter from "./routes/index";
 import forecastRouter from "./routes/forecast";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const app = express();
 
@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use("/", indexRouter);
+app.use("/forecast", forecastRouter);
 
 // Error handling
 app.use(notFoundHandler);
