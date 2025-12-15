@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getNextThreeDaysForecast } from "../controllers/forecastController";
+import { getForecast, saveForecasts } from "../controllers/forecastController";
 
 const router = Router();
 
-router.get("/", getNextThreeDaysForecast);
+router.get("/", getForecast);
+router.post("/", saveForecasts);
 
 export default router;
